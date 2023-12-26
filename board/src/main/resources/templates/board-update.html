@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{header :: head}"></div>
+<body>
+<main class="container-fluid">
+    <div class="row d-flex">
+        <div class="col-12 p-3 mb-2 bg-primary text-white d-flex">
+            <label class="col-6 h4 offset-md-1">수정</label>
+            <label class="col-2 text-center basic-bottom-margin offset-md-1"
+                   th:text="'환영합니다. '+${session.get('user-id')}+' 님'"></label>
+            <button id="logout-button" class="col-1 btn btn-light basic-bottom-margin">
+                로그아웃
+            </button>
+        </div>
+        <div class="col-10 offset-md-1">
+            <div>
+                <form id="update-form">
+                    <input id="board-id" name="id" type="hidden" th:value="${boardDto.getId()}">
+                    <textarea class="form-control" id="title-editor" name="title"
+                              th:text="${boardDto.getTitle()}"></textarea>
+                    <hr/>
+                    <div class="summer-height">
+                        <textarea id="content-editor" name="content" th:utext="${boardDto.getContent()}" }></textarea>
+                    </div>
+                    <hr/>
+                    <label> Attach File </label>
+                    <input type="file" id="attach-file" name="attachFileList" multiple>
+                    <ul id="attach-file-list"></ul>
+                    <hr/>
+                    <div class="d-flex">
+                        <button id="update-button" class="col-6  btn btn-outline-primary">완료</button>
+                        <button id="cancel-button" class="col-6  btn btn-outline-primary">취소</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="/js/board-update.js"></script>
+<script>new BoardUpdate()</script>
+</body>
+</html>

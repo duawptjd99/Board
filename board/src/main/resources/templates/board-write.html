@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{header :: head}"></div>
+<body>
+<main class="container-fluid ">
+    <div class="row d-flex">
+        <div class="col-12 p-3 mb-2 bg-primary text-white">
+            <label class="col-6 display-6 offset-md-1 ">작성</label>
+            <label class="col-2 text-center basic-bottom-margin offset-md-1"
+                   th:text="'환영합니다. '+${session.get('user-id')}+' 님'"></label>
+            <button id="logout-button" class="col-1 btn btn-light basic-bottom-margin">
+                로그아웃
+            </button>
+        </div>
+        <div class="col-10 offset-md-1">
+            <form id="create-form">
+                <div>
+                    <label class="form-label h4 fw-bold">제목</label>
+                    <textarea class="form-control mb-4" id="title-writer" name="title" maxlength="150"></textarea>
+                </div>
+                <div class="summer-height">
+                    <label class="form-label h4 fw-bold">내용</label>
+                    <textarea id="content-writer" class="summer-block-size" name="content" maxlength="5000"></textarea>
+                </div>
+                <hr/>
+                <div class="row">
+                    <label class="form-label h4 fw-bold"> Attach File </label>
+                    <input type="file" id="attach-file" name="attachFileList" multiple>
+                    <ul id="attach-file-list"></ul>
+                </div>
+                <hr/>
+                <button id="submit-button">작성</button>
+                <button id="cancel-button">취소</button>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="/js/board-write.js"></script>
+<script>new BoardWrite()</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alert</title>
+</head>
+<body>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var alertMessage = [[${message}]];
+    var replaceUrl = [[${replaceUrl}]];
+
+    alert(alertMessage);
+    window.location.replace(replaceUrl);
+    /*]]>*/
+
+</script>
+</body>
+</html>
