@@ -1,7 +1,6 @@
 package com.example.board.global.enums;
 
 public class EResponse {
-
     public enum EResponseValue {
 
         OK(true, 000, "OK"),
@@ -16,7 +15,6 @@ public class EResponse {
         DAE(false, 201, "Occurred DataAccessException"),
         CNF(false, 210, "Can't Find Board"),
         CFC(false, 211, "Can't find Comment");
-
 
         private boolean success;
         private int status;

@@ -23,10 +23,13 @@ public class SecurityConfig {
         HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
         requestCache.setMatchingRequestParameterName(null);
         http
-                .authorizeHttpRequests().requestMatchers("/","/bootstrap-4.6.2-dist/**","/jquery-3.6.0/**",
-                        "/js/**","/sass/css/**","/signup", "/resources/static/**").permitAll()
-                .anyRequest().authenticated()
+                .authorizeHttpRequests()
+                .requestMatchers("/","/bootstrap-4.6.2-dist/**","/jquery-3.6.0/**","/js/**","/sass/css/**","/signup")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
+
                 .formLogin()
                 .loginPage("/")
                 .usernameParameter("userId")
@@ -42,15 +45,16 @@ public class SecurityConfig {
                     }
                 })
                 .and()
+
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login")
                 .deleteCookies("JSESSIONID")
                 .invalidateHttpSession(true)
                 .and()
-                .csrf().disable();
+                .csrf()
+                .disable();
 
         return http.build();
     }
-
 }

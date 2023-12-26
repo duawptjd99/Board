@@ -11,13 +11,13 @@ public interface CommentMapper {
     CommentMapper MAPPER = Mappers.getMapper(CommentMapper.class);
 
     //convertComment
-    @Mapping(target = "id", source = "commentDto.id")
-    @Mapping(target = "updatedAt", source = "commentDto.updatedAt")
+ //   @Mapping(target = "id", source = "CommentDto.id")
+ //   @Mapping(target = "updatedAt", source = "commentDto.updatedAt")
     @Mapping(target = "createdAt", expression = "java(commentDto.getCreatedAt() != null ? commentDto.getCreatedAt() : java.time.LocalDateTime.now())")
     @Mapping(target = "deleted", expression = "java(com.example.board.global.enums.EBoard.EDeletionStatus.EXIST.getStatus())")
     Comment toComment(CommentDto commentDto);
 
-    @Mapping(target = "updatedAt", source = "comment.updatedAt")
+   // @Mapping(target = "updatedAt", source = "comment.updatedAt")
     CommentDto toCommentDto(Comment comment);
 
 }

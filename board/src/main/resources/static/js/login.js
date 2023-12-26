@@ -3,26 +3,26 @@ class login {
     userId;
     userPw;
     signUpButton;
-    signInButton;
-    signInForm;
+    loginButton;
+    loginForm;
 
     constructor() {
         this.userId = document.getElementById("user-id");
         this.userPw = document.getElementById("user-pw");
         this.signUpButton = document.getElementById("signup-button");
-        this.signInForm = document.getElementById("login-form");
-        this.signInButton = document.getElementById("signin-button")
+        this.loginForm = document.getElementById("login-form");
+        this.loginButton = document.getElementById("login-button")
 
         this.signUpButton.addEventListener("click", this.signUp);
-        this.signInButton.addEventListener("click", this.submitSignInForm);
+        this.loginButton.addEventListener("click", this.submitLoginForm);
     }
 
-    submitSignInForm = (event) => {
+    submitLoginForm = (event) => {
         event.preventDefault();
-        if (this.checkSignIn()) {
-            this.signInForm.action = "/login";
-            this.signInForm.method = "POST";
-            this.signInForm.submit();
+        if (this.checkLogin()) {
+            this.loginForm.action = "/login";
+            this.loginForm.method = "POST";
+            this.loginForm.submit();
         }
     }
 
@@ -31,7 +31,7 @@ class login {
         window.location.href = "/signup";
     }
 
-    checkSignIn = () => {
+    checkLogin = () => {
         if (this.userId.value === "") {
             alert("아이디가 작성되지 않았습니다.");
 

@@ -3,11 +3,11 @@ package com.example.board.global.enums;
 public class EBoard {
 
     public enum EFileType {
-        BOARD("board"), ATTACH("attach");
+        BOARD("BOARD"), ATTACH("ATTACH");
 
         private String type;
 
-        private EFileType(String type) {
+        EFileType(String type) {
             this.type = type;
         }
 
@@ -29,6 +29,4 @@ public class EBoard {
             return this.status;
         }
     }
-
-
 }
